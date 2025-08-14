@@ -1,0 +1,33 @@
+{% extends 'my_app/base.html' %}
+
+{% block content %}
+<div class="glass-container">
+    <div class="glass-card">
+        <div class="form-header">
+            <h2 class="form-title">Add Employee</h2>
+            <p class="form-subtitle">Enter employee details below</p>
+        </div>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="form-label">Full Name</label>
+                {{ form.name }}
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                {{ form.email }}
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Department</label>
+                {{ form.department }}
+            </div>
+            
+            <button type="submit" class="btn-primary">Add Employee</button>
+            <a href="{% url 'employee_list' %}" class="btn-secondary">View Employee List</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
